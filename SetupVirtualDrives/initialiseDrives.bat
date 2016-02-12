@@ -17,17 +17,21 @@ start /B /WAIT Elevation\elevate label C:
 
 echo.Next make the virtual drives
 
-subst P: C:/Emulators
-:: subst O: (wherever code is....)
+subst P: C:\Emulators
+subst O: E:\Users\twoode\CODE
 
 :: this won't work that's why we need the vbs: label P:Emulators
 
-echo.Then give it a name
+echo.Then give it a name (we can only give CODE its name if we lose the name Macdrive for E:, we don't want that)
 labelEmulators.vbs
 
 ::lastly make it stick by linking it in all users startup
-Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v P: /t REG_SZ /d "\??\C:\Emulators" /f
-::if "%computername%"=="RIVER" (reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\CODE" /f)
-::if "%computername%"=="POND" (reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\C:\Users\Tony\CODE" /f)
+::(TODO: you should launch as admin and runas user, not vice versa....)
+echo.
+echo.AND NOW PLEASE JUST KEEP TYPING EXIT 
+echo.
+start /B /WAIT Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v P: /t REG_SZ /d "\??\C:\Emulators" /f
+if "%computername%"=="RIVER" (start /B /WAIT Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\CODE" /f)
+if "%computername%"=="POND" (start /B /WAIT Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\Users\twoode\CODE" /f)
 
 pause
