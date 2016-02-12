@@ -1,0 +1,506 @@
+
+
+
+
+if (typeof(Answers) == "undefined")
+{
+    Answers = {};
+}
+
+Answers.Res = {
+    ApplicationName: 'Answers',
+    SiteReadOnlyMsg:'We\u2019re sorry\x21 The Microsoft Community site is temporarily in read-only mode and we cannot proceed with this action. Please try again later.',
+    StopEmails: 'Stop emails',
+    SignInUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fstartsignin',
+    AuthStateUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fauthstate',
+    GetUserByDisplayNameUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fgetuserbydisplayname',
+    CancelEditMsg: 'Your changes would be discarded. Are you sure you would like to proceed\x3f',
+    Remove: 'Remove',
+
+    NewThreadUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fnewthreadpartial',
+    EditThreadUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fupdatethreadpartial\x3fLength\x3d4',
+    GetMetaDataUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fgetmetadatas',
+    JoinUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fjoin',
+    RecommendUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2frecommend',
+    ReplyUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2freply',
+    EditReplyUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2feditreply',
+    ThreadSummaryUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fthreadsummary',
+    MsgPanelUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessagepanel',
+    MsgTextUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessagetext',
+    MsgHistoryUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessagehistory',
+    VoteUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fvote',
+    MarkAnsUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmarkanswer',
+    EscalateMsgUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fescalatemessage',
+    RemoveEscalationUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fremoveescalation',
+    MarkAsAssetUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmarkmessageasasset',
+    SuggestAsAssetUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fsuggestmessageasasset',
+    DeleteMessageUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fdeletemessage',   
+    NewPrivateMessageUrl:'https\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fnewprivatemessage',
+    TogglePrivateRepliesUrl:'https\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2ftoggleprivatereplies',
+    ContentCreationUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fcontentcreation',       
+    SubscribeForumUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fsubscribe',
+    ViewForumSubscriptionsUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fviewsubscriptions',
+    MessagesCountUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fprivatemessages\x2fmessagecount',
+
+    SubscribeUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fsubscribe',
+    LockUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2flock',
+    NoIndexUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fsetnoindexpreference',
+    DeleteThreadUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fdeletethread',
+    CloseThreadUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmarkclose',
+    StickyUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fsticky',
+    MergeUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmerge',
+    ConvertUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fconvert',
+    CreateProfileUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fcreateprofile',
+    CheckDisplayNamesUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fcheckdisplaynames',
+    CheckEmailUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fcheckemail',
+    UpdateEmailUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fupdateemail',
+
+    ReportMessageAbuseUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2freportmessageabuse',
+    MessageAbuseMarkUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessageabusemark',
+    MessageAbuseUnmarkUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessageabuseunmark',
+    MessageAbuseClearUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessageabuseclear',
+    MessageAbuseUnhideUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessageabuseunhide',
+
+    ReportProfileAbuseUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2freportprofileabuse',
+    ProfileAbuseMarkUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofileabusemark',
+    ProfileAbuseUnmarkUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofileabuseunmark',
+    ProfileAbuseClearUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofileabuseclear',
+    ProfileAbuseUnhideUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofileabuseunhide',
+    ProfilePictureHideUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofilepicturehide',
+    ProfilePictureUnhideUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofilepictureunhide',
+    HideProfileAndThreads:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fhideprofileandthreads',
+    HideProfileAndThreadsConfirm:'Are you sure you want to hide \x2b\x2b\x2b\u2019s profile and hide all their posts\x3f',
+    Confirm:'Confirm',
+    UploadFrameUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fupload',
+
+    UserThreadListUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fuserthreadlist',
+
+    UploadFileUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fuploadfile',
+    DeleteFileUrl:'fud.community.services.support.microsoft.com\x2ffud\x2fAttachmentDeleteHandler.ashx',
+    DeletePictureUrl:'fud.community.services.support.microsoft.com\x2ffud\x2fImageDeleteHandler.ashx',
+    DefaultProfileImgUrl:'http://i.answers.microsoft.com/static/images/defaultuser150.png?ver=5.3.0.117',
+    DefaultProfileIconUrl:'http://i3.answers.microsoft.com/static/images/defaultuser50.png?ver=5.3.0.117',
+    RemoveUserLoginUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fremovelogin',
+    DeleteImage:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fdeleteimage',
+    DeleteProfileUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fdeleteprofile',
+    ProfileImageUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofileimage',
+
+    StaticAttachmentIcon:'http\x3a\x2f\x2fi.answers.microsoft.com\x2fstatic\x2fimages\x2fpaperclip.jpg\x3fver\x3d5.3.0.117',
+    StaticAttachmentIconAlt:'Attachments',
+
+    OnePixelImageUrl:'http\x3a\x2f\x2fi.answers.microsoft.com\x2fstatic\x2fimages\x2fpixel.gif\x3fver\x3d5.3.0.117',
+
+    AjaxIndicatorDelayTime:1000,
+    ForumsWithAqAutoComplete:'',
+    AutoCompleteMinLength:3,
+
+    confirmation:'Are you sure you want to do this\x3f',
+    SelectOne: '- Select One -',
+    Yes: 'Yes',
+    No: 'No',
+    Ok: 'OK',
+    Cancel: 'Cancel',
+    ConfirmDialogTitle: 'Confirm',
+    Close: 'Close',
+    PostError:'Oops\x21 Something went wrong. Please try again.',
+    SplitThreadMsg:'\x0a      Split from \x3ca title\x3d\x22Split from this thread\x22 href\x3d\x22threadUrl\x22\x3ethis thread.\x3c\x2fa\x3e',
+    TelerikReplyEditorScript:'http\x3a\x2f\x2fi3.answers.microsoft.com\x2fstatic\x2fjs\x2fkendo.web.min.js\x3fver\x3d5.3.0.117',
+    ReplyEditorScript:'http\x3a\x2f\x2fi3.answers.microsoft.com\x2fstatic\x2fjs\x2fkendo.web.min.js\x3fver\x3d5.3.0.117',
+        MetaDataScript:'http\x3a\x2f\x2fi3.answers.microsoft.com\x2fstatic\x2fjs\x2faskmetadatas.js\x3fver\x3d5.3.0.117',
+
+    Common : {
+        Expand: 'Expand',
+        Collapse: 'Collapse',
+        DefaultAltText:'Image',
+        MSInternalRoles:'ForumSupportEngineer,ForumInternalModerator,ForumAbuseModerator,ForumOwner,SiteAbuseModerator,SiteAdmin,RetiredUser,Tester',
+        RelatedContentLoadTimeout:'10',
+        NoRelatedContentFailureMsg:'There is no related content.'
+    },
+
+    AskCommunity: {
+        SelectOneOption: '--Select One--',
+        IsAskQuestionEnabled: false
+    },
+
+    Thread : {
+        EditThreadUrl : 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fupdatethread'
+    },
+
+    NewThread : {
+    errorInvalidCombination:'\x2a No topic of \x7b0\x7d under \x7b1\x7d.',
+    errorRequiredFilter:'\x2a Please select from \x7b0\x7d',
+    errorSelectFilter:'\x2a Please select from the drop down fields.',
+    AskTitleMinChars:2,
+    AskTitleMaxChars:200,
+    AskMinMsgChars:6,
+    AskMinMsg:'\x2a Message must contain a minimum of 6 characters.',
+    AskMaxMsg:'\x2a Your message is too long. Reduce to 60,000 or fewer characters. Current count is \x7b0\x7d characters.',
+    AskMaxMsgChars:60000,
+    cancelMsg:'Any information that you have entered will not be saved. Press OK to confirm you would like to discard your changes or Cancel to stay on the page.',
+    SearchRelatedContentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsearch\x2fsearchrelatedcontent',
+    IsRelatedContentEnabled:'False',
+    RelatedContentTimeout:'2'
+    },
+
+    ViewThread : {
+    QnA : {
+    Voted:'Thanks for your vote\x21',
+    VoteHoverVoted:'You have already voted.'
+    },
+    Discussion : {
+    Voted:'You like this',
+    VoteHoverVoted:'You already like this reply'
+    },
+    PageSize:10,
+    MeToo:'',
+    Unsubscribe:'Unsubscribe',
+    JoinCount:'',
+    IsAnswer:'\x0a      Marked as answer\x3cbr \x2f\x3e',
+    Mark:'This reply answered my question',
+    Unmark:'Unmark',
+    PostError:'Sorry the request couldn\x27t be completed. Please try again later.',
+    ReplyMinChars:6,
+    ReplyMaxChars:60000,
+    ReplyMinMsg:'Message must contain a minimum of 6 characters',
+    ReplyMaxMsg:'Your message is too long. Reduce to 60,000 or fewer characters. Current count is \x7b0\x7d characters.',
+    OneEditor:'You already have a reply window open. Please close before continuing.',
+    Lock:'Lock',
+    UnLock:'Unlock',
+    Subscribe:'Subscribe',
+    UnSubscribe:'Unsubscribe',
+    EditHover:'Move, edit, or delete this post',
+    EditLocked:'This thread is locked. You can follow the question and vote a reply as helpful, but you cannot edit this post.',
+    ReplyHover:'Reply to this post',
+    ReplyLocked:'This thread is locked. You can follow the question and vote a reply as helpful, but you cannot reply to this thread.',
+    Sticky:'Sticky',
+    Unsticky:'Change sticky',
+    DelPostHover:'Click to delete your post',
+    DelPostAnswer:'You cannot delete a message that is marked as an Answer.',
+    DelPostWarning:'Are you sure you want to delete your post\x3f',
+    Unsticky:'Change sticky',
+    UnselecteEditReasonError:'Please select edit reason',
+    EscalationEmptyReason:'Please provide reason',
+    EscalationMaxReasonLength:1000,
+    CharRemain:'\x7b0\x7d remaining',
+    ErrorInvalidIdMerge:'Invalid Thread Id',
+    WarningCancel:'You are about to lose any changes that you made. Press OK to confirm you would like to discard your changes or Cancel to stay on the page.',
+    FileUploadTimeoutMsg:'File upload service timeout',
+    FudServiceTimeout:60000,
+    FudErrorDeletingFile:'Error Deleting File',
+    MoreHelpUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fthreadmorehelp',
+    TabStripUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2ftabstrip',
+    PageStatisticsUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fpagestatistics\x2fajaxaddthreadviewcount',
+    MessageReplyBox:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessagereplybox'
+    },
+
+    EditWiki: {
+    TitleMinChars: 6,
+    TitleMaxChars: 250,
+    SummaryMinChars: 6,
+    SummaryMaxChars: 2000,
+    TextMinChars: 6,
+    TextMaxChars: 60000,
+    SelectOne: '- Select One -',
+    CancelEditMsg: 'Your changes would be discarded. Are you sure you would like to proceed\x3f',
+    IsFilterOptional: false
+    },
+
+    SuggestWiki: {
+    TextMinChars: 6,
+    TextMaxChars: 60000,
+    TextLengthError: '\x2a Details must be 6 to 60000 characters long.',
+    SelectOne: '- Select One -',
+    CancelEditMsg: 'Your changes would be discarded. Are you sure you would like to proceed\x3f',
+    OptionalFilterText: ' \x28Optional\x29',
+    PostError: 'Sorry the request couldn\x27t be completed. Please try again later.',
+    WarningCancel: 'Your changes would be discarded. Are you sure you would like to proceed\x3f',
+    MarkAbuseUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmarksuggestionabuse',
+    MarkEditAbuseUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmarkeditsuggestionabuse',
+    SuggestionAbuseEditorUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsuggestionabuseeditor'
+    },
+
+    Wiki: {
+    UpdateWikiUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fupdatewiki',
+    UpdateSuggestWikiUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsuggestwiki',
+    PublishWikiUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fpublish',
+    DeleteWikiUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fdelete',
+    WikiSuggestionActionUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fwikisuggestionaction',
+    AssetSuggestionActionUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fassetsuggestionaction',
+    AssignAssetSuggestionUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fassignassetsuggestion',
+    UnAssignAssetSuggestionUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2funassignassetsuggestion',
+    MatchSuggestionIdUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmatchsuggestionid',
+    MatchGuidUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmatchguid',
+    MarkWikiHelpfulUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmarkwikihelpful',
+    FoundHelpful:'You already found this helpful',
+    SubscribeUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsubscribe',
+    SuggestEditUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fnewsuggestion',
+    StickyUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsticky',
+    MarkAssetUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmarkasset',
+    SuggestAssetUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsuggestasset',
+    LockArticleUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2flockarticle',
+    LockCommentsUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2flockcomments',
+    NoIndexArticleUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsetnoindexarticlepreference',
+    MoreHelpUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fwikimorehelp',
+    ActionHistoryUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2factionhistory',
+    SuggestionMinChars: 6,
+    SuggestionMaxChars: 60000,
+    SuggestionErrorMessage:'\x2a Your suggestion must be 6 to 60000 characters long. Current count is \x7b0\x7d characters.',
+    SuggestionThankTitle:'Thank you for your suggestion',
+    SuggestionThankBody:'One of our wiki authors will review your suggestion. Once you\u2019ve made a suggestion, it will not be possible to make changes to it. You are welcome to make additional suggestions.',
+    InvalidAssignTitle:'Assignment Failed',
+    InvalidAssign:'Suggestion has already been assigned by someone else. Please choose another suggestion.',
+    ApproveConfirmationMessage:'By approving this suggestion the user would be awarded points. Are you sure you want to approve edit\x3f',
+    SuggestEditApprovePointEnable:true,
+    SuggestEditApprovePointList:'1\x7c2\x7c3',
+    SuggestEditApprovePointErrorMessage:'\x2a Required field is missing',
+    SuggestEditApprovePointLabelMessage:'Please select number of points to award the user',
+    MarkPendingApproval:'Are you sure you want to return to pending approval\x3f',
+    MarkIncomplete:'Are you sure you want to return to incomplete\x3f',
+    RejectConfirmationMessage:'Are you sure you want to reject\x3f',
+    MarkAsDoneConfirmationMessage:'Marking this suggestion as done would mean that article has been updated. Are you sure you want to continue\x3f',
+    ReviewApproveConfirmationMessage:'By approving this suggestion the user would be awarded points. Are you sure you want to approve\x3f',
+    ReviewApprovePointEnable:true,
+    ReviewApprovePointList:'1\x7c2\x7c3',
+    ReviewApprovePointErrorMessage:'\x2a Required field is missing',
+    ReviewApprovePointLabelMessage:'Please select number of points to award the user',
+    ApproveSuggestionPointsDefault:'Select ...',
+    ReviewRejectConfirmationMessage:'Are you sure you want to reject\x3f',
+    ReviewCompleteConfirmationMessage:'Marking this suggestion as done would mean that article has been created. A notification will be sent to the user who suggested with the link to the article. Please enter the Wiki GUID\x3a',
+    ReviewReconsiderConfirmationMessage:'Are you sure you want this suggestion to be reconsidered\x3f',
+    RequestNewThreadCreationConfirmationMessage:'A notification will be sent to the user with instructions to start a new thread for this suggestion. Also, if the suggestion is in a pending state, it will be rejected. Are you sure you want to proceed\x3f',
+    Confirm:'Confirm',
+    MaxLength:6,
+    Unsticky:'Change sticky',
+    CharRemain:'\x7b0\x7d remaining',
+    ApplyButtonAriaLabel:'Apply'
+    },
+
+    Comment: {
+    WikiCommentListlUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fwikicommentlist',
+    CommentPanelUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentpanel',
+    CommentTextUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommenttext',
+    PostCommentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fnewcomment',
+    EditCommentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2feditcomment',
+    DeleteCommentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fdeletecomment',
+    EscalateCommentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fescalatecomment',
+    MarkCommentHelpfulUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fmarkcommenthelpful',
+    RemoveEscalationUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fremoveescalation',
+    RequestThreadCreationOnCommentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2frequestthreadcreationoncomment',
+    RequestThreadCreationConfirmation:'A notification will be sent to the user with instructions to start a new thread for this comment. Are you sure you want to proceed\x3f',
+    CommentEditorScript:'http\x3a\x2f\x2fi3.answers.microsoft.com\x2fstatic\x2fjs\x2fkendo.web.min.js\x3fver\x3d5.3.0.117',
+    Voted:'You like this',
+    VoteHoverVoted:'You already like this comment',
+    EditHover:'Move, edit, or delete this comment',
+    EditLocked:'This wiki is locked. You can subscribe to the wiki and vote as helpful, but you cannot edit this comment.',
+    OneEditor:'You already have a comment window open. Please close before continuing.',
+    CommentReplyBox: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentreplybox',
+    WarningCancel:'You are about to lose any changes that you made. Press OK to confirm you would like to discard your changes or Cancel to stay on the page.',
+    PostError:'',
+    DeleteCommentHover:'Click to delete your post',
+    CommentMinChars: 6,
+    CommentMaxChars: 60000,
+    CommentErrorMessage:'\x2a Your comment must be 6 to 60000 characters long. Current count is \x7b0\x7d characters.',
+    UnselecteEditReasonError:'Please select edit reason',
+    EscalationEmptyReason:'Please provide reason',
+    EscalationMaxReasonLength:1000
+    },
+
+    ThreadList: {
+    ForumThreadListUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fforumthreadlist',
+    ForumThreadListFilterUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2ffiltermenu',
+    ForumThreadListModeratorFilterUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fmoderatorfiltermenu',
+    ShowAll:'Show all',
+    AllReplies:'All Replies',
+    ClickApply:'\x3ca href\x3d\x22\x22 id\x3d\x22applyLink\x22\x3e\x3cspan class\x3d\x22verticalAlignMiddle\x22\x3e\x3cb\x3eApply\x3c\x2fb\x3e\x3c\x2fspan\x3e\x3c\x2fa\x3e selected filters to refresh results\x0a    ',
+    ClickApplyUnformatted:'Please click Apply to refresh your results',
+    ClosePreview:'Close',
+    DatePickerLocale:'',
+    DatePickerLocaleUrl:'http\x3a\x2f\x2fajax.aspnetcdn.com\x2fajax\x2fjquery.ui\x2f1.9.2\x2fi18n\x2fjquery.ui.datepicker-.js',
+    jQueryUIUrl:'http\x3a\x2f\x2fajax.aspnetcdn.com\x2fajax\x2fjquery.ui\x2f1.9.2\x2fjquery-ui.min.js',
+    jQueryUICSSUrl:'http\x3a\x2f\x2fajax.aspnetcdn.com\x2fajax\x2fjquery.ui\x2f1.9.2\x2fthemes\x2fsmoothness\x2fjquery-ui.css',
+    QuestionFiltersUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fquestionfilters',
+    AdvancedFilterBarOptionsUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fforum\x2fadvancedfilterbaroptions'
+    },
+
+    ThreadPreview:
+    {
+    Url:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fthreadpreview',
+    MessagePanelPreviewUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessagepanelpreview',
+    ViewThreadScript:'http\x3a\x2f\x2fi3.answers.microsoft.com\x2fstatic\x2fjs\x2fviewthread.js\x3fver\x3d5.3.0.117'
+    },
+
+    Search: {
+    AskCommunity:'Create your own question or start a discussion',
+    AllOptionText:'Show all',
+    SearchResultListUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsearch\x2fsearchresultlist'
+    },
+
+    UserProfile: {
+    RetypeEmailMsg:'The email addresses do not match. Please check and retype them.',
+    NotAvailableDispNameMsg:'This display name is not available. Please select another.  ',
+    InvalidUrlMsg:'Invalid Url',
+    InvalidEmailMsg:'Invalid email address format. Please check and retype them.  ',
+    EmptyEmailMsg:'You will not be able to receive alerts or replies to your questions sent directly to you if you do not provide an email address',
+    NumOfBonusLinks:5,
+    AboutMeMaxMsg:'About Me exceeds maximum length of 1024.',
+    AboutMeMaxLength:1024,
+    InvalidEmailNotification:'Please enter an email address if you wish to recieve notifications. Otherwise, please turn off email notifications.',
+    EmailRequiredForSubscription:'Please enter an email address if you wish to recieve notifications. Otherwise, please turn off the subscription.',
+    DispNameRequired:'Display name is required.  ',
+    DispNameInvalid:'Invalid display name entered. Please try again.',
+    DispNameInvalidFormat:'\x5b\x5cxA0\x5cx00-\x5cx1F\x5cx7F\x5cx3C\x5cx3E\x5cx22\x5c\x3b\x5c\x21\x5c,\x5c\x7c\x5c\x5c\x5c\x2f\x5c\x3f\x5c\x25\x5c\x5e\x5c\x2a\x5c\x40\x5c\x24\x5d',
+    ErrorDeletingImage:'Error Deleting Image',
+    UserFiltersListUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fuserfilterslist'
+    },
+
+    CreateProfile: {
+    TermRequired:'Please accept the code of conduct.  ',
+    DisplayNameRequired:'Display name is required.  '
+    },
+
+    Abuse: {
+    MaxDetailLength:250,
+    DetailsAnonMinChars:10,
+    DetailsAnonMinMsg:'Details must contain a minimum of 10 characters.',
+    InvalidHip:'Type the characters that you see in the picture or the numbers that you hear in the audio playback. This helps to ensure that a person, not an automated program, is creating this request.',
+    ConfirmMark:'The profile is hidden. Edit the profile to remove abuse, and then clear the abuse, or use the FMT tool to ban the user.',
+    AbuseScriptUrl:'http\x3a\x2f\x2fi.answers.microsoft.com\x2fstatic\x2fjs\x2fabuse.js\x3fver\x3d5.3.0.117',
+    MsgAbuseMenuUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fmessageabusemenu',
+    AbuseAnonSignInUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fabuseanonsignin',
+    AbuseReportUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fthread\x2fabusereport',
+    ProfileAbuseAnonSignInUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fabuseanonsignin',
+    ProfileAbuseReportUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fabusereport',
+    ProfileAbuseMenuUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fuser\x2fprofileabusemenu',
+    CommentAbuseMenuUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentabusemenu',
+    SuggestionAbuseMenuUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fsuggestionabusemenu',
+    EditSuggestionAbuseMenuUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2feditsuggestionabusemenu',
+    CommentAbuseAnonSignInUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fabuseanonsignin',
+    CommentAbuseDialogUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fabusereport',
+    CommentAbuseClearUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentabuseclear',
+    CommentAbuseUnhideUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentabuseunhide',
+    CommentAbuseMarkUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentabusemark',
+    CommentAbuseUnmarkUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentabuseunmark',
+    CommentAbuseReportUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fwiki\x2fcommentabusereport'
+    },
+
+    PageControls : {
+    StatsServiceUrl:'http\x3a\x2f\x2fajax.community.services.support.microsoft.com\x2fPlatformAjaxServices\x2fStatsService.svc\x2f',
+    ThreadStats:'GetThreadStats',
+    UserStats:'GetUserStats',
+    StatsServiceAppId:'1'
+    },
+
+    Announcement : {
+    CookieName:'ShowAnnounce',
+    MinTitleLength :6,
+    MaxTitleLength :250,
+    MinBodyLength :6,
+    MaxBodyLength :4000,
+    TitleLengthRemain :'\x7b0\x7d remaining',
+    ScopeSplitString :'\x3a',
+    DeleteConfirmationText:'You are about to delete this announcement. Do you want to continue\x3f',
+    UpdateAnnouncementUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fupdateannouncement',
+    DeleteAnnouncementUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fdeleteannouncement',
+    GetAnnouncementContentUrl:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fgetannouncementcontent',
+    ExpireDateFormat:'mm\x2fdd\x2fyyyy',
+    AddDlgTitle :'Add announcement',
+    EditDlgTitle :'Edit announcement'
+    },
+
+    Obfuscate : {
+    ObfuscateMailContent:'\x2a\x2a\x2a Email address is removed for privacy \x2a\x2a\x2a'
+    },
+
+    Scs : {
+    Url:'\x2f\x2fcontext.answers.microsoft.com\x2fAnswersSharedContext\x2f',
+    CookieName:'scsid',
+    NewSessionCookieName:'scsnew',
+    CookieDomain:'answers.microsoft.com',
+    Forums:'windowslive\x7coutlook_com\x7conedrive',
+    UnloadTimeout:500
+    },
+
+    LtsLogging : {
+    Ssid: 29,
+    ImgHoverTime: 1000
+    },
+
+    TelerikEditor : {
+    StyleSheetCommon: 'http\x3a\x2f\x2fi.answers.microsoft.com\x2fstatic\x2fcss\x2fkendo.common.min.css\x3fver\x3d5.3.0.117',
+    StyleSheetDefault: 'http\x3a\x2f\x2fi2.answers.microsoft.com\x2fstatic\x2fcss\x2fkendo.default.min.css\x3fver\x3d5.3.0.117',
+    StyleSheetCustom: '\x2fstatic\x2fcss\x2fkendo.custom.css\x3fver\x3d5.3.0.117',
+    StyleSheetRtl: 'http\x3a\x2f\x2fi3.answers.microsoft.com\x2fstatic\x2fcss\x2fkendo.rtl.min.css\x3fver\x3d5.3.0.117',
+    Editor: 'telerik',
+    GetEditorSafeHtml:'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2fgeteditorsafehtml',
+    UploadImageUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2finsertimageui',
+    Stylesheet: 'http\x3a\x2f\x2fi2.answers.microsoft.com\x2fstatic\x2fcss\x2fkendo.editor.css\x3fver\x3d5.3.0.117',
+    Undo: 'Undo',
+    Redo: 'Redo',
+    FormatH1: 'Heading 1',
+    FormatH2: 'Heading 2',
+    FormatStandard: 'Standard',
+    FormatCodeBlock: 'Code Block',
+    Bold: 'Bold',
+    Italic: 'Italic',
+    Underline: 'Underline',
+    Strikethrough: 'Strikethrough',
+    JustifyCenter: 'Center text',
+    JustifyLeft: 'Align text left',
+    JustifyRight: 'Align text right',
+    JustifyFull: 'Justify',
+    InsertUnorderedList: 'Insert unordered list',
+    InsertOrderedList: 'Insert ordered list',
+    Indent: 'Indent',
+    Outdent: 'Outdent',
+    CreateLink: 'Insert hyperlink',
+    Unlink: 'Remove hyperlink',
+    InsertImage: 'Insert image',
+    InsertHtml: 'Insert HTML',
+    ViewHtml: 'View HTML',
+    FontSize: 'Select font size',
+    FormatBlock: 'Format',
+    Formatting: 'Format',
+    ForeColor: 'Color',
+    BackColor: 'Background color',
+    Style: 'Styles',
+    UploadFile: 'Upload',
+    OrderBy: 'Arrange by\x3a',
+    OrderBySize: 'Size',
+    OrderByName: 'Name',
+    ImageAltText: 'Alternate text',
+    LinkWebAddress: 'Web address',
+    LinkText: 'Text',
+    LinkToolTip: 'ToolTip',
+    LinkOpenInNewWindow: 'Open link in new window',
+    DialogUpdate: 'Update',
+    DialogInsert: 'Insert',
+    DialogButtonSeparator: 'or',
+    DialogCancel: 'Cancel',
+    CreateTable: 'Create table',
+    AddColumnLeft: 'Add column on the left',
+    AddColumnRight: 'Add column on the right',
+    AddRowAbove: 'Add row above',
+    AddRowBelow: 'Add row below',
+    DeleteRow: 'Delete row',
+    DeleteColumn: 'Delete column'
+    },
+
+    EPrivacy : {
+    CookieName: 'epCookieCommunity',
+    CookieExpires: 259200
+    }
+    };
+
+    var rteConfig = {
+    dir: 'ltr',
+    cssPath: 'http\x3a\x2f\x2fi2.answers.microsoft.com\x2fstatic\x2fcss\x2feditor.css\x3fver\x3d5.3.0.117',
+    cssrtlPath: 'http\x3a\x2f\x2fi2.answers.microsoft.com\x2fstatic\x2fcss\x2fcorertl.css\x3fver\x3d5.3.0.117',
+    linkPrompt: 'Enter url\x3a',
+    uploadImageUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2finsertimageui',
+    insertLinkUrl: 'http\x3a\x2f\x2fanswers.microsoft.com\x2fen-us\x2fsite\x2finsertlinkui',
+
+    buttons: {
+    siteDefault: [["Bold",'Bold'],["Italic",'Italic'],["Underline",'Underline'],["Undo",'Undo'],["Redo",'Redo'],["InsertUnorderedList",'Bullets'],["InsertOrderedList",'Numbering'],["Link",'Link'],["Unlink",'Unlink']],
+    enableUpload: [["Bold",'Bold'],["Italic",'Italic'],["Underline",'Underline'],["Undo",'Undo'],["Redo",'Redo'],["InsertUnorderedList",'Bullets'],["InsertOrderedList",'Numbering'],["Link",'Link'],["Unlink",'Unlink'],["InsertImage",'Add image']]
+    }
+    };
