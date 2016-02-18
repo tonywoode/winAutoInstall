@@ -9,10 +9,12 @@ SET NOTEPADPLUSPLUS="C:\Program Files (x86)\Notepad++\notepad++.exe"
 
 ECHO.********************************************
 ECHO.		CHOCOLATEY TOOL
-ECHO.(COPY AND RUN THIS SCRIPT FROM YOUR DESKTOP)
-ECHO.	MAKE CHANGES TO THE LOG FIRST
-ECHO.	THEN WE'LL RUN AND UPDATE
+ECHO.	QUERY FOR PACKAGES AND MAKE CHANGES FIRST
+ECHO.	THEN AFTER WE'LL RUN AND UPDATE
 ECHO.********************************************
+
+::we ALWAYS want to query choco first, so give us a command prompt so we can
+Start /B CMD /K
 
 IF EXIST %NOTEPADPLUSPLUS% (%NOTEPADPLUSPLUS% packages.config)
 

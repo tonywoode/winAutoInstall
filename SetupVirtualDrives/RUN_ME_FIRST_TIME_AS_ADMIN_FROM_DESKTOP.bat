@@ -34,7 +34,7 @@ echo. 	the manual option is to start web client service at boot
 pause
 set mykey="HKLM\SYSTEM\CurrentControlSet\Services\Hfsplus\Parameters"
 set myvalue=""
-reg query %mykey% >null
+reg query %mykey% > null 2>&1
 if %errorlevel% equ 0 (
 echo "%mykey% exists- do nothing" && pause && exit
 ) else (
