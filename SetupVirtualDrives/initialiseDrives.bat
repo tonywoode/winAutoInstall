@@ -1,5 +1,8 @@
 @echo off & SETLOCAL
 
+::cd to this scripts dir
+cd /D "%~dp0"
+
 echo.First take the C: drives label away - switching to admin cmd
 ::We won't be able to relabel any drive subst from C: until C: has no drive label
 echo.VERY MANUAL STEPS NEEDED
@@ -13,7 +16,7 @@ echo. 	need blank C drive to rename virtual drives)
 echo.
 
 :: uses Elevation the command-line administrative elevator from https://technet.microsoft.com/en-us/magazine/2007.06.utilityspotlight.aspx?
-start /B /WAIT Elevation\elevate label C:
+start /B /WAIT .\..\Elevation\elevate label C:
 
 echo.Next make the virtual drives
 
@@ -30,8 +33,8 @@ labelEmulators.vbs
 echo.
 echo.AND NOW PLEASE JUST KEEP TYPING EXIT 
 echo.
-start /B /WAIT Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v P: /t REG_SZ /d "\??\C:\Emulators" /f
-if "%computername%"=="RIVER" (start /B /WAIT Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\CODE" /f)
-if "%computername%"=="POND" (start /B /WAIT Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\Users\twoode\CODE" /f)
+start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v P: /t REG_SZ /d "\??\C:\Emulators" /f
+if "%computername%"=="RIVER" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\CODE" /f)
+if "%computername%"=="POND" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\Users\twoode\CODE" /f)
 
 pause
