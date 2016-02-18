@@ -1,6 +1,5 @@
 @ECHO off & SETLOCAL
 
-
 ::cd to this scripts dir
 cd /D "%~dp0"
 
@@ -44,6 +43,14 @@ echo.Remember we also put a file called LOCAL.txt in the gamecube dir, both have
 pause
 REG IMPORT %GAMECUBE_DIR%\LocalUserDirs.reg
 
+
+set COMICBOOKREADER="P:\CBR\CDisplayEx\cdisplayex.exe"
+echo.Now set comic book reader filetype .cbz to cdisplayerex
+echo. note: see here for why we do this
+echo. F:\Gamebase Games\Nintendo SNES\SNES USA\Extras\NPGs
+echo. You're gonna need to TYPE EXIT again....at least once
+echo on
+start /B /WAIT ".\..\Elevation\elevate assoc cbz=comicbook && Ftype comicbook=%COMICBOOKREADER% %1"
 
 echo.All done...
 pause
