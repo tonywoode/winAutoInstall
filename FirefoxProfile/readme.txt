@@ -1,0 +1,1 @@
+run createScheduledLoginTask to use the bat in this folder as the target of a scheduled task ie: you don't need to directly run the refreshFirefox...bat
