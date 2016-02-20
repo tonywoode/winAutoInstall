@@ -21,7 +21,7 @@ start /B /WAIT .\..\Elevation\elevate label C:
 echo.Next make the virtual drives
 
 subst P: C:\Emulators
-subst O: E:\Users\twoode\CODE
+subst O: E:\CODE
 
 :: this won't work that's why we need the vbs: label P:Emulators
 
