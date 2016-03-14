@@ -29,5 +29,5 @@ exit
 ::
 ::for /f "eol=# tokens=* delims=" %%g in (MyPrograms.txt) do (
 ::	cinst -y %%g
-::	cup %%g
+::	cup -y %%g
 ::)
