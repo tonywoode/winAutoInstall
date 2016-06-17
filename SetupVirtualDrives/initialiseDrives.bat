@@ -23,7 +23,8 @@ echo.Next make the virtual drives
 subst P: C:\Emulators
 subst O: E:\CODE
 
-:: this won't work that's why we need the vbs: label P:Emulators
+:: this won't work that's why we need the vbs: 
+:: label P:Emulators
 
 echo.Then give it a name (we can only give CODE its name if we lose the name Macdrive for E:, we don't want that)
 labelEmulators.vbs
@@ -34,7 +35,8 @@ echo.
 echo.AND NOW PLEASE JUST KEEP TYPING EXIT 
 echo.
 start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v P: /t REG_SZ /d "\??\C:\Emulators" /f
+:: we have three use cases for drive O: river, pond natively, and pond on mac. We need to unsubst and subst on most every boot, so doing it as admin permanently on each time is a real pain on pond, we'll just run a bat, so the last line commented out
 if "%computername%"=="RIVER" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\CODE" /f)
-if "%computername%"=="POND" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\Users\twoode\CODE" /f)
+::if "%computername%"=="POND" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\Users\twoode\CODE" /f)
 
 pause
