@@ -1,0 +1,1 @@
+I've put the scheduled task XML in here too, though the parent folders bat's don't use it. Delete this when its clear that the scheduled task creation code in the parent folder's bat works in all circumstances to map code under the administrative command prompt

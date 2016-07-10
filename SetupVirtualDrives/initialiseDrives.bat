@@ -39,4 +39,18 @@ start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Con
 if "%computername%"=="RIVER" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\CODE" /f)
 ::if "%computername%"=="POND" (start /B /WAIT .\..\Elevation\elevate reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" /v O: /t REG_SZ /d "\??\E:\Users\twoode\CODE" /f)
 
+
+echo.Next problem is that even with EnabledLinedConnections on, administrator STILL
+echo.won't see your substed drives on some win10 machines, we need to actually have
+echo.administrator map the same drives as %USER%, and the only way to do that is a
+echo.scheduled task. see information here:
+echo.http://superuser.com/questions/1026424/why-wont-my-mapped-drive-persist-for-elevated-user-after-reboot?rq=1
+echo.and for further research see here:
+echo.http://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots
+echo.I think the following command should work.
+echo.First copy the mapper to common startup (see notes in that bat) effectively mapping as %USER%
+copy mapCode/SubstCodeOnMac.bat "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\SubstCodeOnMac.bat"
+echo.Then make a scheduled task that runs with the highest privileges on startup, effectively mapping as administrator
+..\Elevation\elevate schtasks /create /tn "Map Code As Admin" /tr "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\SubstCodeOnMac.bat" /sc onlogon /it /ru %USERNAME% /RL HIGHEST
+
 pause

@@ -20,3 +20,4 @@ IF EXIST %NOTEPADPLUSPLUS% (%NOTEPADPLUSPLUS% packages.config)
 
 ::CHOCO LIKES TO RUN AS ADMIN
 .\..\Elevation\elevate installandUpdate
+pause

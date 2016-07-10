@@ -44,5 +44,6 @@ echo "%mykey% exists- do nothing" && pause && exit
   reg add %mykey% /v "Fake FS Name" /t REG_SZ /d "CDFS"
 )
 
-echo.Now administrator should be able to run any exe on an hfs drive too. NOW RESTART. 
+echo.Now administrator should be able to run any exe on an hfs drive too. 
+echo.NOW RESTART. 
 pause

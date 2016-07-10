@@ -4,10 +4,8 @@
 
 ::cd to this scripts dir
 cd /D "%~dp0"
-
 ::install from the xml
 cinst -y packages.config
-
 echo.
 echo.Now let's check for updates....
 echo.
