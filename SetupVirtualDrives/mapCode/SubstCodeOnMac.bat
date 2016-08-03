@@ -24,8 +24,7 @@ if exist E:\CODE (subst O: E:\CODE) else (
 ::using netdrive 2's command line tool. http://netdrive.net/ - I think this is going to be around for a while!!
 ::netdrive adds its cmd to %PATH% automatically
 net use N: /D
-if exist "\\Estuary\Games" (net use N: \\Estuary\Games) 
-else (	
+if exist "\\Estuary\Games" (net use N: \\Estuary\Games) else (	
 		set config="O:\Scripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
 		for /f "tokens=2* delims==" %%H in ('find "netDriveURL=" ^<%config% ') do (set URL=%%H)
 		for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set USER=%%I)
