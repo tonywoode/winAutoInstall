@@ -1,4 +1,4 @@
-echo off & setlocal
+@echo off & setlocal
 :: makes sure we have a drive O: that maps to code on osx
 :: needs to be run every startup
 :: problem is it lives on o: ;-)
@@ -24,15 +24,18 @@ if exist E:\CODE (subst O: E:\CODE) else (
 ::using netdrive 2's command line tool. http://netdrive.net/ - I think this is going to be around for a while!!
 ::netdrive adds its cmd to %PATH% automatically
 net use N: /D
-if exist "\\Estuary\Games" (net use N: \\Estuary\Games) else (	
-		set config="O:\Scripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
-		for /f "tokens=2* delims==" %%H in ('find "netDriveURL=" ^<%config% ') do (set URL=%%H)
-		for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set USER=%%I)
-		for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
-		for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (set LETTER=%%K)
-		"C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
-			subst N: "L:\GAMES"
-	)
+
+::if we're local, act local
+if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b)
+	
+::else mount netdrive		
+set config="O:\Scripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
+for /f "tokens=2* delims==" %%H in ('find "netDriveURL=" ^<%config% ') do (set URL=%%H)
+for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set USER=%%I)
+for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
+for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (set LETTER=%%K)
+"C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
+subst N: "L:\GAMES"
 
 ::clear up
 FOR %%Z IN (URL USER PASS LETTER) DO SET %%Z=
