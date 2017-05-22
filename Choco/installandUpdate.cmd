@@ -10,7 +10,7 @@ echo.
 echo.Now let's check for updates....
 echo.
 pause
-cup all
+cup all -y
 
 echo.
 echo.Lastly, just to help out, I'll open that log
