@@ -8,7 +8,9 @@
 :: remove any previous mappings (though there shouldn't be any as nothing here is perm)
 net use O: /D
 subst /D O:
-
+if exist R:\GAMES_DRIVE (subst F: R:\) else (
+	if exist S:\GAMES_DRIVE (subst F: S:\)
+) || echo "can't find games drive"
 ::three cases are 1)river 2)native boot on pond and 3) parallels boot on pond
 :: The last case is interesting, we CAN actually subst a network drive we map 
 ::  like (subst O: Z:\Users\twoode\CODE), but then opening any executables on the 
