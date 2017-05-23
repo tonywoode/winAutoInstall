@@ -8,9 +8,7 @@
 :: remove any previous mappings (though there shouldn't be any as nothing here is perm)
 net use O: /D
 subst /D O:
-if exist R:\GAMES_DRIVE (subst F: R:\) else (
-	if exist S:\GAMES_DRIVE (subst F: S:\)
-) || echo "can't find games drive"
+
 ::three cases are 1)river 2)native boot on pond and 3) parallels boot on pond
 :: The last case is interesting, we CAN actually subst a network drive we map 
 ::  like (subst O: Z:\Users\twoode\CODE), but then opening any executables on the 
@@ -22,6 +20,14 @@ if exist E:\CODE (subst O: E:\CODE) else (
 		if exist "\\Mac\Macintosh HD\Users\twoode\CODE" (net use O: "\\Mac\Macintosh HD\Users\twoode\CODE") || echo "can't map the network code drive"
 	)	
 )
+
+::Map games drive in the same way. Outer loop is for river
+if not exist F:\GAMES_DRIVE (
+  if exist R:\GAMES_DRIVE (subst F: R:\) else (
+  	if exist S:\GAMES_DRIVE (subst F: S:\)
+  ) || echo "can't find games drive"
+)|| echo "games drive appears to be natively mapped"
+
 ::now do the similar for mapping NAS box. If we're at home, map it on local network. If we're not, map it over webdav
 ::using netdrive 2's command line tool. http://netdrive.net/ - I think this is going to be around for a while!!
 ::netdrive adds its cmd to %PATH% automatically
