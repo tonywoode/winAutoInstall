@@ -5,7 +5,7 @@ cd /D "%~dp0"
 
 color 17
 ::WE NEED AN EDITOR, AND WE NEED TO KNOW WHERE THE SCRIPTS ARE
-SET NOTEPADPLUSPLUS="C:\Program Files (x86)\Notepad++\notepad++.exe"
+SET NOTEPADPLUSPLUS="C:\Program Files\Notepad++\notepad++.exe"
 
 ECHO.********************************************
 ECHO.		CHOCOLATEY TOOL
