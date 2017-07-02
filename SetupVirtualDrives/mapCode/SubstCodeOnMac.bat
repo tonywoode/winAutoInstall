@@ -14,16 +14,16 @@ net use O: /D
 ::  resulting drive kicks off windows smartscreen every time. So just make
 ::  the Mac drive available on the parallels 'network' and we net use it instead.
 
-if exist E:\CODE (net use O: \\localhost\E$\CODE) else (
-	if exist E:\Users\twoode\CODE (net use O: \\localhost\E$\Users\twoode\CODE) else (
+if exist E:\CODE (subst O: E:\CODE) else (
+	if exist E:\Users\twoode\CODE (subst O: E:\CODE) else (
 		if exist "\\Mac\Macintosh HD\Users\twoode\CODE" (net use O: "\\Mac\Macintosh HD\Users\twoode\CODE") || echo "can't map the network code drive"
 	)	
 )
 
 ::Map games drive in the same way. Outer loop is for river
 if not exist F:\GAMES_DRIVE (
-  if exist R:\GAMES_DRIVE (net use F: \\localhost\R$) else (
-  	if exist S:\GAMES_DRIVE (net use F: \\localhost\S$)
+  if exist R:\GAMES_DRIVE ( subst F: R:\) else (
+  	if exist S:\GAMES_DRIVE (subst F: S:\)
   ) || echo "can't find games drive"
 )|| echo "games drive appears to be natively mapped"
 
@@ -42,7 +42,7 @@ if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b) else (
   for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
   for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (set LETTER=%%K)
   "C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
-  net use N: \\localhost\L$\GAMES
+  subst N: L:\GAMES
 
 )
  
