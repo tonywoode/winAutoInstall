@@ -9,7 +9,6 @@ cinst -y packages.config
 echo.
 echo.Now let's check for updates....
 echo.
-pause
 cup all -y
 
 echo.
