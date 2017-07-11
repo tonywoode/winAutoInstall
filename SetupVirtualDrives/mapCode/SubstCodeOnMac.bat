@@ -33,7 +33,7 @@ if not exist F:\GAMES_DRIVE (
 net use N: /D
 
 ::if we're local, act local
-if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b) else (
+if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b)
  
   ::else mount netdrive		
   set config="O:\Scripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
@@ -44,7 +44,6 @@ if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b) else (
   "C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
   subst N: L:\GAMES
 
-)
  
 ::clear up
 FOR %%Z IN (URL USER PASS LETTER) DO SET %%Z=
