@@ -15,7 +15,7 @@ net use O: /D
 ::  the Mac drive available on the parallels 'network' and we net use it instead.
 
 if exist E:\CODE (subst O: E:\CODE) else (
-	if exist E:\Users\twoode\CODE (subst O: E:\CODE) else (
+	if exist E:\Users\twoode\CODE (subst O: E:\Users\twoode\CODE) else (
 		if exist "\\Mac\Macintosh HD\Users\twoode\CODE" (net use O: "\\Mac\Macintosh HD\Users\twoode\CODE") || echo "can't map the network code drive"
 	)	
 )
