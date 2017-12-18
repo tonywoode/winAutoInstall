@@ -36,7 +36,7 @@ net use N: /D
 if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b)
  
   ::else mount netdrive		
-  set config="O:\Scripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
+  set config="P:\WinScripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
   for /f "tokens=2* delims==" %%H in ('find "netDriveURL=" ^<%config% ') do (set URL=%%H)
   for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set USER=%%I)
   for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
