@@ -1,3 +1,5 @@
 [user]
 	name = tony woode
 	email = tonywoodecode@gmail.com
+[core]
+	excludesfile = C:\\Users\\tony\\gitignore_global.txt
