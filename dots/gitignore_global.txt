@@ -25,3 +25,6 @@ Thumbs.db
 #*.dll
 #*.lib
 #*.sbr
+
+# Vim tags file
+tags

@@ -32,15 +32,18 @@ if not exist F:\GAMES_DRIVE (
 ::netdrive adds its cmd to %PATH% automatically
 net use N: /D
 
+:: get netdrive vars
+set config="P:\WinScripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
+for /f "tokens=2* delims==" %%H in ('find "netDriveURL=" ^<%config% ') do (set URL=%%H)
+for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set USER=%%I)
+for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
+for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (set LETTER=%%K)
+
 ::if we're local, act local
-if exist "\\Estuary\Games" (net use N: \\Estuary\Games && EXIT /b)
+if exist "\\Estuary\Games" (net use N: \\Estuary\Games /user:%user% %PASS% && EXIT /b)
  
   ::else mount netdrive		
-  set config="P:\WinScripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
-  for /f "tokens=2* delims==" %%H in ('find "netDriveURL=" ^<%config% ') do (set URL=%%H)
-  for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set USER=%%I)
-  for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
-  for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (set LETTER=%%K)
+
   "C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
   subst N: L:\GAMES
 
