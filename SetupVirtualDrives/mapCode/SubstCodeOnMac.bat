@@ -6,7 +6,9 @@
 :: with windows+R and then typing shell:common startup
 
 :: remove any previous mappings (though there shouldn't be any as nothing here is perm)
-net use O: /D
+if exist O:\ ( 
+  net use O: /D
+)
 
 ::three cases are 1)river 2)native boot on pond and 3) parallels boot on pond
 :: The last case is interesting, we CAN actually subst a network drive we map 
@@ -30,7 +32,9 @@ if not exist F:\GAMES_DRIVE (
 ::now do the similar for mapping NAS box. If we're at home, map it on local network. If we're not, map it over webdav
 ::using netdrive 2's command line tool. http://netdrive.net/ - I think this is going to be around for a while!!
 ::netdrive adds its cmd to %PATH% automatically
-net use N: /D
+if exist N:\ (
+  net use N: /D
+)
 
 :: get netdrive vars
 set config="P:\WinScripts\WinAutoInstall\SetupVirtualDrives\netDriveCreds.cfg"
