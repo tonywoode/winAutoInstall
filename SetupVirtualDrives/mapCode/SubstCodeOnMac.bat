@@ -39,15 +39,17 @@ for /f "tokens=2* delims==" %%I in ('find "netDriveUSER=" ^<%config% ') do (set 
 for /f "tokens=2* delims==" %%J in ('find "netDrivePASS=" ^<%config% ') do (set PASS=%%J)
 for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (set LETTER=%%K)
 
-::if we're local, act local
-if exist "\\Estuary\Games" (net use N: \\Estuary\Games /user:%user% %PASS% && EXIT /b)
- 
-  ::else mount netdrive		
+:: this runs at startup, if you login too early, the local mapping doesn't work
+timeout 5 > NUL
 
+::if we're local, act local. But note this check won't work unless you authenticate manually once and tick remember creds...
+net use N: \\Estuary\Games /user:%user% %PASS%
+::else mount netdrive	
+if %errorlevel% NEQ 0 (
   "C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
   subst N: L:\GAMES
+)
 
- 
 ::clear up
 FOR %%Z IN (URL USER PASS LETTER) DO SET %%Z=
 ::exit
