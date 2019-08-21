@@ -32,8 +32,8 @@ if not exist F:\GAMES_DRIVE (
 ::now do the similar for mapping NAS box. If we're at home, map it on local network. If we're not, map it over webdav
 ::using netdrive 2's command line tool. http://netdrive.net/ - I think this is going to be around for a while!!
 ::netdrive adds its cmd to %PATH% automatically
-if exist N:\ (
-  net use N: /D
+if exist Q:\ (
+  net use Q: /D
 )
 
 :: get netdrive vars
@@ -47,12 +47,16 @@ for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (se
 timeout 5 > NUL
 
 ::if we're local, act local. But note this check won't work unless you authenticate manually once and tick remember creds...
-net use N: \\Estuary\Games /user:%user% %PASS%
+net use Q: \\Estuary\Games /user:%user% %PASS%
 ::else mount netdrive	
 if %errorlevel% NEQ 0 (
   "C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
-  subst N: L:\GAMES
+  subst Q: L:\GAMES
 )
+
+:: temporary step, mount N: drive as C:\qpGame as we now have tens of thousands of symlinks pointing at N:
+::   and we want them to actually respawn in this tempdri, IOC at its finest!
+subst N: C:\QPGame
 
 ::clear up
 FOR %%Z IN (URL USER PASS LETTER) DO SET %%Z=
