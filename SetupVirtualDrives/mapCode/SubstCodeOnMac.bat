@@ -5,6 +5,12 @@
 :: so needs to be copied to all users startup (which you can find
 :: with windows+R and then typing shell:common startup
 
+::TODO: in the run-once virtual drive setup script that goes with this script, you'll see registry editing code that attempts to make this subst
+:: permanent, sadly after I subst P: /D one day on windows 1803, that reg key just doesn't seem to work anymore, we lose P: every boot
+:: I think the proper solution may be the current user reg key changes cited here: https://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots
+:: but for now let's just mount on every boot, like we do with the other drives here
+subst P: C:\Emulators
+
 :: remove any previous mappings (though there shouldn't be any as nothing here is perm)
 if exist O:\ ( 
   net use O: /D
