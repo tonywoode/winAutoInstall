@@ -61,7 +61,8 @@ if %errorlevel% NEQ 0 (
 )
 
 :: temporary step, mount N: drive as C:\qpGame as we now have tens of thousands of symlinks pointing at N:
-::   and we want them to actually respawn in this tempdri, IOC at its finest!
+::   and we want them to actually respawn in this tempdrive, IOC at its finest!
+:: TODO: you're assuming C:\QPGame exists, and does this need only mapping on POND or on all pcs, and is this even needed any more at all?
 subst N: C:\QPGame
 
 ::clear up
