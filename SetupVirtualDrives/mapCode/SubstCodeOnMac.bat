@@ -9,7 +9,9 @@
 :: permanent, sadly after I subst P: /D one day on windows 1803, that reg key just doesn't seem to work anymore, we lose P: every boot
 :: I think the proper solution may be the current user reg key changes cited here: https://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots
 :: but for now let's just mount on every boot, like we do with the other drives here
-subst P: C:\Emulators
+:: TODO: now this doesn't seem needed anymore on 1809/1903 - ie: remove this line and reboot and P: is still mapped in RIVER, that doutbless means that some unanticipated
+::  factor is at work
+::subst P: C:\Emulators
 
 :: remove any previous mappings (though there shouldn't be any as nothing here is perm)
 if exist O:\ ( 
@@ -38,6 +40,10 @@ if not exist F:\GAMES_DRIVE (
 ::now do the similar for mapping NAS box. If we're at home, map it on local network. If we're not, map it over webdav
 ::using netdrive 2's command line tool. http://netdrive.net/ - I think this is going to be around for a while!!
 ::netdrive adds its cmd to %PATH% automatically
+if exist N:\ (
+  net use N: /D
+)
+
 if exist Q:\ (
   net use Q: /D
 )
@@ -51,6 +57,14 @@ for /f "tokens=2* delims==" %%K in ('find "netDriveLETTER=" ^<%config% ') do (se
 
 :: this runs at startup, if you login too early, the local mapping doesn't work
 timeout 5 > NUL
+
+::if we're local, act local. But note this check won't work unless you authenticate manually once and tick remember creds...
+net use N: \\Estuary\Emulators /user:%user% %PASS%
+::else mount netdrive	
+if %errorlevel% NEQ 0 (
+  "C:\Program Files\NetDrive2\nd2cmd" -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
+  subst N: L:\Emulators
+)
 
 ::if we're local, act local. But note this check won't work unless you authenticate manually once and tick remember creds...
 net use Q: \\Estuary\Games /user:%user% %PASS%
