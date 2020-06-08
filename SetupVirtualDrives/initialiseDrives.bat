@@ -49,8 +49,9 @@ echo.and for further research see here:
 echo.http://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots
 echo.I think the following command should work.
 echo.First copy the mapper to common startup (see notes in that bat) effectively mapping as %USER%
-copy mapCode/SubstCodeOnMac.bat "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\SubstCodeOnMac.bat"
+echo.Note that administrators command prompt will default to System32 folder, you need full paths!
+start /B /WAIT ..\Elevation\elevate cmd /k copy P:\WinScripts\winAutoInstall\SetupVirtualDrives\mapDrives\mapVariableDrives.bat "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\mapVariableDrives.bat"
 echo.Then make a scheduled task that runs with the highest privileges on startup, effectively mapping as administrator
-..\Elevation\elevate schtasks /create /tn "Map Code As Admin" /tr "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\SubstCodeOnMac.bat" /sc onlogon /it /ru %USERNAME% /RL HIGHEST
+start /B /WAIT ..\Elevation\elevate schtasks /create /tn "Map Variable Drives" /tr "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\mapVariableDrives.bat" /sc onlogon /it /ru %USERNAME% /RL HIGHEST
 
 pause

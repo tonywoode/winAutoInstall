@@ -17,13 +17,11 @@
 if exist O:\ ( 
   net use O: /D
 )
-
 ::three cases are 1)river 2)native boot on pond and 3) parallels boot on pond
 :: The last case is interesting, we CAN actually subst a network drive we map 
 ::  like (subst O: Z:\Users\twoode\CODE), but then opening any executables on the 
 ::  resulting drive kicks off windows smartscreen every time. So just make
 ::  the Mac drive available on the parallels 'network' and we net use it instead.
-
 if exist E:\CODE (subst O: E:\CODE) else (
 	if exist E:\Users\twoode\CODE (subst O: E:\Users\twoode\CODE) else (
 		if exist "\\Mac\Macintosh HD\Users\twoode\CODE" (net use O: "\\Mac\Macintosh HD\Users\twoode\CODE") || echo "can't map the network code drive"
