@@ -1,2 +1,4 @@
+SET DIR=%~dp0%
+SET STARTUP=C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
 ..\Elevation\elevate cmd /c^
- "mklink "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\mapNASDrives.bat" "P:\WinScripts\winAutoInstall\3.SetupVirtualDrives\mapDrives\mapNASDrives.bat" && echo.copied NAS mapper to all users startup: start+r then 'shell:common startup' to get there & pause"
+ "mklink "%STARTUP%mapNASDrives.bat" "%DIR%mapDrives\mapNASDrives.bat" && echo.copied NAS mapper to all users startup: start+r then 'shell:common startup' to get there & pause"
