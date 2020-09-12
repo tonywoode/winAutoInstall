@@ -34,11 +34,9 @@ echo.scheduled task. see information here:
 echo.http://superuser.com/questions/1026424/why-wont-my-mapped-drive-persist-for-elevated-user-after-reboot?rq=1
 echo.and for further research see here:
 echo.http://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots
-echo.I think the following command should work.
-echo.First copy the mapper to common startup (see notes in that bat) effectively mapping as %USER%
-echo.Note that administrators command prompt will default to System32 folder, you need full paths!
-start /B /WAIT ..\Elevation\elevate cmd /k copy C:\Emulators\WinScripts\winAutoInstall\SetupVirtualDrives\mapDrives\mapVariableDrives.bat "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\mapVariableDrives.bat"
-echo.Then make a scheduled task that runs with the highest privileges on startup, effectively mapping as administrator
-start /B /WAIT ..\Elevation\elevate schtasks /create /tn "Map Variable Drives" /tr "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\mapVariableDrives.bat" /sc onlogon /it /ru %USERNAME% /RL HIGHEST
+echo.Note that elevated command prompt will default to System32 folder, you need full paths!
+echo.Make a scheduled task that runs with the highest privileges on startup, effectively mapping as administrator
+:: problem here is you won't get the 'on battery' functionality, this literaly won't run when on battery unless you untick it in shceduled task
+start /B /WAIT ..\Elevation\elevate schtasks /create /tn "Map Variable Drives" /tr "C:\Emulators\WinScripts\winAutoInstall\SetupVirtualDrives\mapDrives\mapVariableDrives.bat" /sc onlogon /it /ru SYSTEM /RL HIGHEST
 
 pause
