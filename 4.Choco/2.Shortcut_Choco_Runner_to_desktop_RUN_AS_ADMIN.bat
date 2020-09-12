@@ -1,0 +1,1 @@
+mklink c:\Users\%username%\Desktop\ChocsAway ChocsAway.bat

@@ -1,6 +1,6 @@
-The first time we install we run installChocolatey (as adminstrator)
+The first time we install we run 1 - installChocolatey (as adminstrator)
 (This downloads the install.ps1 you'll see in this dir)
-For subsequent installs and updates we shortcut 'ChocsAway.bat' to the desktop and run it (don't have to be administrator)
+For subsequent installs and updates we run 2 - shortcut 'ChocsAway.bat' to the desktop and run it (as administrator)
 TODO: you can automate both making the inital install a test and run as admin if necessary and shortcutting chocsaway to the desktop if the shortcut isn't there
 We add to the list in packages.config
 The WhatDoIHaveInstalled folder is for info only - if you didn't use a config file and if you hadn't set up from scratch,
