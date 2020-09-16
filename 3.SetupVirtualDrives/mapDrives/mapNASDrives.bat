@@ -1,4 +1,7 @@
 @echo off & setlocal
+COLOR 17
+MODE CON: COLS=50 LINES=8
+
 :: as long as we're not mapping as admin, i think we can cd like below, then we can have relative path to the creds file
 cd /D "%~dp0"
 ::for mapping NAS box. If we're at home, map it on local network. If we're not, map it over webdav
