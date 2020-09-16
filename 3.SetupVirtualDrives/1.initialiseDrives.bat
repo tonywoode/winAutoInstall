@@ -1,7 +1,6 @@
 @echo off & SETLOCAL
 
 ::cd to this scripts dir
-
 SET DIR=%~dp0%
 cd /D "%~dp0"
 
@@ -21,23 +20,12 @@ echo.
 start /B /WAIT .\..\Elevation\elevate label C:
 
 echo.Next make the virtual drives
+:: todo is the RunAs at the end needed at all - that's to prompt UAC but we're bypassing it
 start /B /WAIT ..\Elevation\elevate powershell -noprofile -command "&{ start-process powershell -ArgumentList '-noprofile -file %DIR%MakeEmuDrivesScheduledTask.ps1' -verb RunAs}"
 
 :: this won't work that's why we need the vbs: label P:Emulators
 echo.Then give it a name
 labelEmuDrives.vbs
 
-echo.Next problem is that even with EnabledLinedConnections on, administrator STILL
-echo.won't see your substed drives on some win10 machines, we need to actually have
-echo.administrator map the same drives as %USER%, and the only way to do that is a
-echo.scheduled task. see information here:
-echo.http://superuser.com/questions/1026424/why-wont-my-mapped-drive-persist-for-elevated-user-after-reboot?rq=1
-echo.and for further research see here:
-echo.http://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots
-echo.Note that elevated command prompt will default to System32 folder, you need full paths!
-echo.Make a scheduled task that runs with the highest privileges on startup, effectively mapping as administrator
-:: problem here is you won't get the 'on battery' functionality, this literaly won't run when on battery unless you untick it in shceduled task
-::start /B /WAIT ..\Elevation\elevate schtasks /create /tn "Map Variable Drives" /tr "C:\Emulators\WinScripts\winAutoInstall\SetupVirtualDrives\mapDrives\mapVariableDrives.bat" /sc onlogon /it /ru SYSTEM /RL HIGHEST
-
-
+echo.Done
 pause
