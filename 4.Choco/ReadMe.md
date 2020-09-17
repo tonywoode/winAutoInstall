@@ -1,12 +1,21 @@
+# Install
 The first time we install we run 1 - installChocolatey (as adminstrator)
 (This downloads the install.ps1 you'll see in this dir)
-For subsequent installs and updates we run 2 - shortcut 'ChocsAway.bat' to the desktop and run it (as administrator)
+and 2.Shortcut_Choco_Runner_to_desktop which shortcuts 'ChocsAway.bat' to the desktop 
+
+# Usage
+Then we run it when we want to install/update choco apps (it runs as administrator), the script allows you massages the packages list 'packages.config' before chocolatey runs.
 TODO: you can automate both making the inital install a test and run as admin if necessary and shortcutting chocsaway to the desktop if the shortcut isn't there
 We add to the list in packages.config
+
+# Other features
 The WhatDoIHaveInstalled folder is for info only - if you didn't use a config file and if you hadn't set up from scratch,
 you could use this to generate an install script from your existing choco installs
 
-Help
+# Limitations
+The current imp will update ALL choco installed packages, not just those from your package list
+
+# Help
 * for chocoloatey you should run cinst --whatif package to find package info, as running choco info isn't too useful 
 (don't forget to run manual choco commands in elevated prompt)
 * if you interrupt or if some other problem, I have found that choco uninstall and then a cinst doesn't work. 
