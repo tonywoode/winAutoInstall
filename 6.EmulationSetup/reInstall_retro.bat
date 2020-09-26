@@ -51,5 +51,12 @@ echo. You're gonna need to TYPE EXIT again....at least once
 echo on
 start /B /WAIT ".\..\Elevation\elevate assoc cbz=comicbook && Ftype comicbook=%COMICBOOKREADER% %1"
 
+set DELIPLAYER_INSTALL_DIR="P:\Music\installs\Deliplayer2"
+echo.Now install deliplayer 2, some playback and sound issues arre apparent if you don't install it
+echo.(tell it to start after install, you seem to need this, just once)
+echo.if issues you can use thhis without the ui (right click taskbar item and play controls are there,
+echo.  or use winamp)
+%DELIPLAYER_INSTALL_DIR%\"DeliPlayer 2.50 beta"
+
 echo.All done...
 pause
