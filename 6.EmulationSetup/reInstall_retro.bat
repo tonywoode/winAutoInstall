@@ -13,7 +13,6 @@ set GAMEBASE_DIR="P:\GAMEBASE"
 
 echo.Next, let's export the registry for gamebase, I think that lives at %GAMEBASE_DIR%
 pause
-
 REG IMPORT %GAMEBASE_DIR%\Gamebase.reg
 
 set WINUAE_DIR="P:\Commodore\Amiga\WinUAE"
