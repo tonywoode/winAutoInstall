@@ -10,7 +10,6 @@ pause
 set GAMEBASE_DIR="P:\GAMEBASE"
 %GAMEBASE_DIR%\gamebase-setup-v1.3-full
 
-
 echo.Next, let's export the registry for gamebase, I think that lives at %GAMEBASE_DIR%
 pause
 REG IMPORT %GAMEBASE_DIR%\Gamebase.reg
@@ -41,7 +40,6 @@ echo.Next we'll specify local-user directories to gamecube entries from %GAMECUB
 echo.Remember we also put a file called LOCAL.txt in the gamecube dir, both have the same effect
 pause
 REG IMPORT %GAMECUBE_DIR%\LocalUserDirs.reg
-
 
 set COMICBOOKREADER="P:\CBR\CDisplayEx\cdisplayex.exe"
 echo.Now set comic book reader filetype .cbz to cdisplayerex
