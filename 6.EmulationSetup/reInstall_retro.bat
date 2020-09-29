@@ -58,5 +58,12 @@ echo.if issues you can use thhis without the ui (right click taskbar item and pl
 echo.  or use winamp)
 %DELIPLAYER_INSTALL_DIR%\"DeliPlayer 2.50 beta"
 
+echo.Now recall on POND we have an issue where the F: drive may need subst-ing from a different drive letter
+echo.To do that there's a check for an empty file in the root of a drive called 'GAMES_DRIVE', 
+echo.(there may be a secondary use - not synctool?)
+echo.so make that on F:/ so that will work in future
+echo. https://stackoverflow.com/questions/210201/how-to-create-empty-text-file-from-a-batch-file
+if not exist F:\GAMES_DRIVE ( type nul >F:/GAMES_DRIVE )|| echo "GAMES_DRIVE file appears to already be on F:\"
+
 echo.All done...
 pause
