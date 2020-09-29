@@ -1,0 +1,19 @@
+*****A warning to anyone buying these pads*****
+
+I have purchased two of these pads from two different sellers, both came as faulty. What I mean by this is, the buttons needed a lot of pressure to recognize the connection. This is defiantly a manufacture fault but this can be fixed easily if you dare void the warranty and open it.
+
+What you will need to fix this product:
+- Cleaning alcohol
+- Ear Buds
+- One sheet of A4 paper
+
+1. Carefully open the pad by removing the 6 screws on the back.
+2. Remove all membrane from the pad and rub each and everyone on the A4 paper until all membranes have produced a 5cm line.
+3. On all the PCB's button contacts use the cleaning alcohol, put a fair bit on the ear buds and clean each contact.
+4. Dry contacts with dry side of ear bud
+5. put pad back together but don't screw
+6. Plug in USB and test pad under game pad in control panel.
+7. If all buttons work fine after this fix screw the pad back together and have fun. If not, rub the membrane more on the paper.
+
+I think all these pad's have been shipped with faulty membrane's which don't conduct electricity properly until they are warn down a bit. Also shows
+Sabrent as a company has no time for quality control. Follow my steps and you will get a Awesome gaming experience with emulators.
