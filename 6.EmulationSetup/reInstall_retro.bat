@@ -65,5 +65,15 @@ echo.so make that on F:/ so that will work in future
 echo. https://stackoverflow.com/questions/210201/how-to-create-empty-text-file-from-a-batch-file
 if not exist F:\GAMES_DRIVE ( type nul >F:/GAMES_DRIVE )|| echo "GAMES_DRIVE file appears to already be on F:\"
 
+echo.shortcut EmuMovies Sync to the desktop
+..\Elevation\elevate cmd /c^
+ "mklink "C:\Users\%username%\Desktop\Emumovies Sync" "C:\Users\tonyw\OneDrive\TOOLS\Emumovies-sync\EmuMovies Sync\Sync Utility.exe" && echo.Emumovies Sync Runner Linked to Desktop"
+
+echo.Install the Sabrent gamepad drivers, i'm afraid there are 4 of them and you prob only need one. Remember also that GTA V won't open if they're plugged in - see diary...
+".\Sabrent-USB-GAMEPAD\Drivers\DOUBLE USB Driver.exe"
+".\Sabrent-USB-GAMEPAD\Drivers\PSII & USB Conversion Driver.exe"
+".\Sabrent-USB-GAMEPAD\Drivers\SINGLE USB Driver.exe"
+".\Sabrent-USB-GAMEPAD\Drivers\USB Racing Wheel Driver.exe"
+
 echo.All done...
 pause
