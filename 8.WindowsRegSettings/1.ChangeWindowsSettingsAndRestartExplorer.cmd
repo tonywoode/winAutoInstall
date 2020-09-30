@@ -6,7 +6,10 @@ cd /D "%~dp0"
 ::import the reg file
 REG IMPORT ./RegFile/WindowsRegSettings.reg
 
+start /B DesktopFolderCreation\MakeMyDesktopFolders
+
 :: restart explorer to hope to see the effects
 TASKKILL /F /IM explorer.exe
 TIMEOUT /T 3
 START explorer.exe
+exit
