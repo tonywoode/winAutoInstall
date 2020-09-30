@@ -42,3 +42,16 @@ Windows Registry Editor Version 5.00
 "AppCaptureEnabled"=dword:00000000
 [HKEY_CURRENT_USER\System\GameConfigStore]
 "GameDVR_Enabled"=dword:00000000
+
+; try and disable auto run (in my doc, i disable it in notifications and actions), but lets see if it works
+; https://www.tenforums.com/tutorials/101962-enable-disable-autoplay-all-drives-windows.html
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoDriveTypeAutoRun"=dword:000000ff
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoDriveTypeAutoRun"=-
+
+; set the time zone automatically (default off)
+; https://superuser.com/questions/1070290/registry-keys-for-automatic-time-and-time-zones
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate]
+"Start"=dword:00000003
