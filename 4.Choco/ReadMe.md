@@ -5,8 +5,8 @@ and 2.Shortcut_Choco_Runner_to_desktop which shortcuts 'ChocsAway.bat' to the de
 
 # Usage
 Then we run it when we want to install/update choco apps (it runs as administrator), the script allows you massages the packages list 'packages.config' before chocolatey runs.
-TODO: you can automate both making the inital install a test and run as admin if necessary and shortcutting chocsaway to the desktop if the shortcut isn't there
-We add to the list in packages.config
+It uses administrative Powershell for the querying (a good idea) and uses Notepad++  to open the packages.config
+It prompts for admin twice, once the second prompt is ok-ed it will run the (cmd-based) choco update
 
 # Other features
 The WhatDoIHaveInstalled folder is for info only - if you didn't use a config file and if you hadn't set up from scratch,
