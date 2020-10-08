@@ -1,5 +1,5 @@
 @ECHO off & SETLOCAL
-
+:: these actions are all idempotent - you won't get duplicate folders created if you run multiple times
 ::cd to this scripts dir
 cd /D "%~dp0"
 
