@@ -18,3 +18,11 @@ ECHO IconResource=C:\Windows\system32\SHELL32.dll,121 >>%APPDIR%\desktop.in
 move %APPDIR%\desktop.in %APPDIR%\desktop.ini
 attrib +S +H %APPDIR%\desktop.ini
 attrib +R %APPDIR%
+
+:: now a shortcut to qps dir, a symlink will make your paths think we're on the desktoop (which may or may not be fine)
+:: so do a real shortcut
+set TARGET='P:\QUICKPLAY\QuickPlayFrontend\qp\'
+set SHORTCUT='%USERPROFILE%\Desktop\qp.lnk'
+set PWS=powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile
+%PWS% -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut(%SHORTCUT%); $S.TargetPath = %TARGET%; $S.Save()"
+
