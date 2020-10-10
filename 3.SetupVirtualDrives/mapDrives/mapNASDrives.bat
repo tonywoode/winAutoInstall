@@ -1,4 +1,5 @@
 @echo OFF & SETLOCAL
+TITLE NAS DRIVE MAPPER
 COLOR 17
 MODE CON: COLS=50 LINES=8
 
@@ -25,17 +26,21 @@ Set NETDRIVECMD="C:\Program Files\NetDrive2\nd2cmd"
 
 ::if we're local, act local. But note this check won't work unless you authenticate manually once and tick remember creds...
 if exist N:\ ( net use N: /D )
+echo.Trying to Map Emulators. First trying Windows Domain...
 net use N: \\Estuary\Emulators /user:%user% %PASS%
 ::else mount netdrive	
 if %ERRORLEVEL% NEQ 0 (
+  echo.That didn't work...trying WebDAV...
   %NETDRIVECMD% -c m -t dav -u %URL% -a %USER% -p %PASS% -d %LETTER% -l nas 
   subst N: %NASDRIVELETTER%Emulators
 )
 
 if exist Q:\ ( net use Q: /D )
+echo.Trying to Map Games. First trying Windows Domain...
 net use Q: \\Estuary\Games /user:%user% %PASS%
 ::else mount netdrive	
 if %ERRORLEVEL% NEQ 0 (
+  echo.That didn't work...trying WebDAV...
   if exist %NASDRIVELETTER% (
     echo.NAS Drive already Mapped via NetDrive
   ) else (
