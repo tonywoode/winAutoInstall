@@ -20,7 +20,7 @@ attrib +S +H %APPDIR%\desktop.ini
 attrib +R %APPDIR%
 
 :: now a shortcut to qps dir, a symlink will make your paths think we're on the desktoop (which may or may not be fine)
-:: so do a real shortcut
+:: so do a real shortcut https://superuser.com/a/836818
 set TARGET='P:\QUICKPLAY\QuickPlayFrontend\qp\'
 set SHORTCUT='%USERPROFILE%\Desktop\qp.lnk'
 set PWS=powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile
