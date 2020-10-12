@@ -20,7 +20,7 @@ echo.
 start /B /WAIT .\..\Elevation\elevate label C:
 
 echo.Next make the virtual drives
-:: todo is the RunAs at the end needed at all - that's to prompt UAC but we're bypassing it
+:: todo we don't need both elevate and the runas - see choco script, just use powershell
 start /B /WAIT ..\Elevation\elevate powershell -noprofile -command "&{ start-process powershell -ArgumentList '-noprofile -file %DIR%MakeEmuDrivesScheduledTask.ps1' -verb RunAs}"
 
 :: this won't work that's why we need the vbs: label P:Emulators

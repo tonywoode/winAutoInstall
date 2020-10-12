@@ -1,7 +1,7 @@
 @echo OFF & SETLOCAL
 TITLE NAS DRIVE MAPPER
 COLOR 17
-MODE CON: COLS=50 LINES=8
+MODE CON: COLS=55 LINES=7
 
 :: as long as we're not mapping as admin, i think we can cd like below, then we can have relative path to the creds file
 cd /D "%~dp0"
