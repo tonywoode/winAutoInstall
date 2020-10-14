@@ -59,3 +59,6 @@ $processExclusions.ForEach({
   Write-Output "Adding $_ to Windows Defender Process Exclusions"
   Add-MpPreference -ExclusionProcess "$_" -Force
 })
+
+# this simply so we can see the output of the powershell window, i'm sure there's a better way...
+Start-Sleep -s 5
