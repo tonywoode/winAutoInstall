@@ -13,6 +13,10 @@ you could use this to generate an install script from your existing choco instal
 # Limitations
 The current imp will update ALL choco installed packages, not just those from your package list, but this also has the advantage that it updates choco itself
 
+# Caveats
+I wrote this once in my Install diary:  A problem comes when you have a dependency that gets installed – how do you update this? 
+For now my solution is (a) notice it being a dependency (like autohk is for the dropbox install) and (b) add its update call below the install call for the dependent app
+
 # Help
 * for chocoloatey you should run cinst --whatif package to find package info, as running choco info isn't too useful 
 (don't forget to run manual choco commands in elevated prompt)
