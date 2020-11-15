@@ -9,5 +9,5 @@ COLOR 57
 MODE CON: COLS=40 LINES=2
 echo.Running Powershell As Administrator...
 :: for NoLogo see https://superuser.com/q/645721/678231
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoLogo -NoProfile -ExecutionPolicy Bypass -File ""%dIR%\choco.ps1""' -Verb RunAs}"
+PowerShell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell.exe -ArgumentList '-NoLogo -NoProfile -ExecutionPolicy Bypass -File ""%dIR%\choco.ps1""' -Verb RunAs}"
 
