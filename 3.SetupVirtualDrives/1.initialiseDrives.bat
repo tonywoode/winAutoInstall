@@ -20,12 +20,12 @@ echo.
 start /B /WAIT .\..\Elevation\elevate label C:
 
 echo.Next make the virtual drives
-:: todo we don't need both elevate and the runas - see choco script, just use powershell
-start /B /WAIT ..\Elevation\elevate powershell -noprofile -command "&{ start-process powershell -ArgumentList '-noprofile -file %DIR%MakeEmuDrivesScheduledTask.ps1' -verb RunAs}"
+:: we don't need both elevate and the runas - see choco script, just use powershell
+powershell.exe -noprofile -command "&{ start-process powershell.exe -ArgumentList '-noprofile -file %DIR%MakeEmuDrivesScheduledTask.ps1' -verb RunAs}"
 
 :: this won't work that's why we need the vbs: label P:Emulators
 echo.Then give it a name
-labelEmuDrives.vbs
+start /B /WAIT .\..\Elevation\elevate cscript labelEmuDrives.vbs
 
 echo.Done
 pause

@@ -6,3 +6,4 @@ $Stset = New-ScheduledTaskSettingsSet -MultipleInstances "IgnoreNew" -AllowStart
 $TaskName = "MapEmuDrives"
 Register-ScheduledTask $TaskName -Action $Sta  -Trigger $Stt  -Principal $STPrin -Settings $Stset
 Start-ScheduledTask -TaskName $TaskName
+#for troubleshooting Read-Host -Prompt "Press any key to continue"
