@@ -1,9 +1,9 @@
 @ECHO off & SETLOCAL
 
 ::copy over dot files. Windows really doesn't like these
-::one trick is to echo them around, sadly i didn't find a good trick for deleting
+::one trick is to echo them around, which I do to copy them
 ::another trick is two dots - windows ignores the one at the end and respects the one at the beginning
-::but your source file can't have dots, hence gitignore not .gitignore
+::note the source files can be dotted, this didn't seem to work on one machine but did on another...
 ::I tried elevation with this script but no matter what you get "mklink can't be found", trust me!
 
 ::cd to this scripts dir
@@ -14,18 +14,41 @@ fsutil behavior set SymlinkEvaluation R2L:1
 fsutil behavior set SymlinkEvaluation R2R:1
 
 
-set home="C:%HOMEPATH%"
+set home=C:%HOMEPATH%
 pushd %HOME%
-IF EXIST ".gitconfig" (
-		type ".gitconfig">".gitconfig_old"
-		echo Please manually delete the existing .gitconfig I just backed up
-		pause
-	)
 
+SET dot1=.gitconfig
+SET dot2=.gitignore
+
+IF EXIST %dot1% (
+  call :BACKUP_AND_DELETE_EXISTING %dot1%
+)
+
+IF EXIST %dot2% (
+  call :BACKUP_AND_DELETE_EXISTING %dot2%
+)
+	
 popd
 
 echo symlinking your git dots (not sure why the %CD% is needed but it sure is!)
 echo dir is %CD%
-mklink %HOME%\.gitconfig. "%CD%\gitconfig"
-mklink %HOME%\gitignore_global.txt "%CD%\gitignore_global.txt"
+:: note the dot here in destination!!!!
+mklink %HOME%\%dot1%. "%CD%\%dot1%"
+mklink %HOME%\%dot2%. "%CD%\%dot2%"
+
+::now a little issue: in gitconfig, you can't have variables, but my user folder is different on different machines
+echo Setting the global gitignore to be based on your local home folder name...
+::unfortunately this will hardcode your user folder name in the .gitconfig in THIS repo though, because the config file is a symlink to here...sigh...
+git config --global core.excludesFile %HOME%\.gitignore
+echo FINISHED
 pause
+exit /b
+
+
+
+:BACKUP_AND_DELETE_EXISTING
+set file=%1
+type %file%>%file%_old
+del %file%	
+echo renamed the existing %file% to %file%_old
+
