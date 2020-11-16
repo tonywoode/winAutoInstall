@@ -65,7 +65,7 @@ if not exist F:\GAMES_DRIVE ( type nul >F:/GAMES_DRIVE )|| echo "GAMES_DRIVE fil
 
 echo.shortcut EmuMovies Sync to the desktop
 ..\Elevation\elevate cmd /c^
- "mklink "C:\Users\%username%\Desktop\Emumovies Sync" "C:\Users\tonyw\OneDrive\TOOLS\Emumovies-sync\EmuMovies Sync\Sync Utility.exe" && echo.Emumovies Sync Runner Linked to Desktop"
+ "mklink "C:\Users\%username%\Desktop\Emumovies Sync" "C:\Users\%username%\OneDrive\TOOLS\Emumovies-sync\EmuMovies Sync\Sync Utility.exe" && echo.Emumovies Sync Runner Linked to Desktop"
 
 echo.Install the Sabrent gamepad drivers, i'm afraid there are 4 of them and you prob only need one. Remember also that GTA V won't open if they're plugged in - see diary...
 ".\Sabrent-USB-GAMEPAD\Drivers\DOUBLE USB Driver.exe"
