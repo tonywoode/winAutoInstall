@@ -8,11 +8,11 @@
 cd /D "%~dp0"
 SET DIR=%~dp0%
 
-echo.makeing your usual desktop folders
+echo.making your usual desktop folders
 call DesktopFolderCreation\MakeMyDesktopFolders
 
 echo.now runing the powershell script that sets the windows defender exclusions
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoLogo -NoProfile -ExecutionPolicy Bypass -File ""%dIR%\WindowsDefenderExclusions\WindowsDefenderExclusions.ps1""' -Verb RunAs}"
+PowerShell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell.exe -ArgumentList '-NoLogo -NoProfile -ExecutionPolicy Bypass -File ""%dIR%\WindowsDefenderExclusions\WindowsDefenderExclusions.ps1""' -Verb RunAs}"
 
 ::now importing the registry files, we need to be admin
 ..\Elevation\elevate cmd /c "%DIR%\RegFiles\ImportRegFiles_my_parent_runs_me_as_admin.cmd"
