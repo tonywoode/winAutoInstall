@@ -36,10 +36,12 @@ echo dir is %CD%
 mklink %HOME%\%dot1%. "%CD%\%dot1%"
 mklink %HOME%\%dot2%. "%CD%\%dot2%"
 
-::now a little issue: in gitconfig, you can't have variables, but my user folder is different on different machines
-echo Setting the global gitignore to be based on your local home folder name...
-::unfortunately this will hardcode your user folder name in the .gitconfig in THIS repo though, because the config file is a symlink to here...sigh...
-git config --global core.excludesFile %HOME%\.gitignore
+::we have a problem now, .gitconfig internally reference .gitignore, most sensible would be to reference the symlink to it in %HOME%,
+::  the one we just made, but you can't put system variables in .gitconfig, and windows changed its behaviour recently, forcing a different
+::  user folder name than most people previously would have used. So home folder name varies. So now, internally, .gitconfig states the
+::  global gitignore is in this script's directory, rather than in my user folder. Problem solved, but bear in mind that .gitignore's symlink
+::  in %HOMEPATH% is now just for ease of access for you
+echo remember global .gitignore is stated as in this scripts dir 
 echo FINISHED
 pause
 exit /b
