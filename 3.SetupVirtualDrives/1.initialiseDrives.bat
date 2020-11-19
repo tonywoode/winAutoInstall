@@ -26,6 +26,7 @@ powershell.exe -noprofile -command "&{ start-process powershell.exe -ArgumentLis
 :: this won't work that's why we need the vbs: label P:Emulators
 echo.Then give it a name
 start /B /WAIT .\..\Elevation\elevate cscript labelEmuDrives.vbs
-
+:: for some reason on one machine this didn't change the drive name for user context, so do that again without elevating
+cscript labelEmuDrives.vbs
 echo.Done
 pause
