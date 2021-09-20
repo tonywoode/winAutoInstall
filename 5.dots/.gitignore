@@ -27,5 +27,6 @@ Thumbs.db
 #*.lib
 #*.sbr
 
-# Vim tags file
+# Vim files
 tags
+*.swp
