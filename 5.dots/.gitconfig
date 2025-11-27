@@ -3,3 +3,5 @@
 	email = tonywoodecode@gmail.com
 [core]
 	excludesFile = P:\\WinScripts\\winAutoInstall\\5.dots\\.gitignore
+[init]
+	defaultBranch = main
