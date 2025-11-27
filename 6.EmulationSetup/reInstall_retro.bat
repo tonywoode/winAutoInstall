@@ -6,6 +6,8 @@ cd /D "%~dp0"
 echo.Make sure you've run drive mapper script first, or maybe administrator won't be able to see the gamebase exe as its on a virtual drive
 
 echo.First, we install Gamebase - tell it to install to P:\Gamebase (make sure it doesn't install to P:\Gamebase\gamebase)
+echo.You WILL get a refused C:\Windows\System32\msjtes40.dll "Unable to register the DLL/OCX: RegSvr32 failed with exit code 0x5"
+echo.Ignore it according to mad: https://gb64.com/forum/viewtopic.php?t=6087 its an access DLL already installed by office
 pause
 set GAMEBASE_DIR="P:\GAMEBASE"
 %GAMEBASE_DIR%\gamebase-setup-v1.3-full
@@ -68,6 +70,7 @@ echo.shortcut EmuMovies Sync to the desktop
  "mklink "C:\Users\%username%\Desktop\Emumovies Sync" "C:\Users\%username%\OneDrive\TOOLS\Emumovies-sync\EmuMovies Sync\Sync Utility.exe" && echo.Emumovies Sync Runner Linked to Desktop"
 
 echo.Install the Sabrent gamepad drivers, i'm afraid there are 4 of them and you prob only need one. Remember also that GTA V won't open if they're plugged in - see diary...
+echo.Last time I installed the single driver without realising this script did it and the installs below bombed out this script with an odd question mark modal, I presume that's why....
 ".\Sabrent-USB-GAMEPAD\Drivers\DOUBLE USB Driver.exe"
 ".\Sabrent-USB-GAMEPAD\Drivers\PSII & USB Conversion Driver.exe"
 ".\Sabrent-USB-GAMEPAD\Drivers\SINGLE USB Driver.exe"
