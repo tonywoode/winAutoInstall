@@ -51,10 +51,10 @@ Start-Process -Wait -NoNewWindow PowerShell.exe -ArgumentList '-NoLogo -NoProfil
 # so its probably much better to use this method of installing and upgrading than the other advice on the internet to use the 
 # upgrade or install commands with a loop, unless you loop through the auto-generated list
 Write-Host "installing from $PSScriptRoot\$ChocoConfigFileLocation ..."
-cinst -y packages.config
+choco install -y packages.config
 Write-Host "Finished Installing"
 Write-Host "Now let's check for updates...."
-cup all -y
+choco upgrade all -y
 
 Write-Host "Lastly, just to help out, I'll open that log"
 if((get-process $MyFavouriteEditorsProcessName -ea SilentlyContinue) -eq $Null){ 
