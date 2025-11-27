@@ -9,8 +9,6 @@
 ::  factor is at work
 subst P: C:\Emulators
 
-if "%computername%"=="TYPHOON-WIN"    (subst F: C:/Games)
-
 ::Map games drive in the same way. Outer loop is for river
 if not exist F:\GAMES_DRIVE (
   if exist R:\GAMES_DRIVE ( subst F: R:\) else (
@@ -18,3 +16,12 @@ if not exist F:\GAMES_DRIVE (
   ) || echo "can't find games drive"
 )|| echo "games drive appears to be natively mapped"
 
+::NOW try and map F like this, because we know we aren't RIVER, POND or any of their descendents
+
+if not exist F:\ (
+  subst F: C:\Games
+) else (
+  echo F: drive already exists, skipping C:\Games mapping
+)
+
+endlocal
