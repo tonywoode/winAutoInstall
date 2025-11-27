@@ -30,6 +30,25 @@ if (!(Get-Command choco.exe -ErrorAction SilentlyContinue)) {
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
 
+# ----------------- ADD PROFILE CREATION LOGIC HERE (for the choco tab completion) -----------------
+Write-Host "Checking for/Creating PowerShell Profile for tab completion and customization..."
+
+# 1. Create the profile file if it doesn't exist.
+if (!(Test-Path -Path $PROFILE)) { 
+    Write-Host "Profile file not found. Creating at $($PROFILE)"
+    New-Item -ItemType File -Path $PROFILE -Force | Out-Null
+}
+
+# 2. Add the Chocolatey tab completion code to the profile file.
+# Note: We check if the profile file already contains the choco code before appending it.
+$chocoProfileCode = "`n# Chocolatey profile`n`$ChocolateyProfile = `"``$env:ChocolateyInstall\helpers\chocolateyProfile.psm1`"`"`nif (Test-Path(`$ChocolateyProfile)) {`n  Import-Module `"`$ChocolateyProfile`"`n}`n"
+
+if ( (Get-Content $PROFILE) -notcontains $chocoProfileCode.Trim() ) {
+    Write-Host "Adding Chocolatey tab completion code to profile."
+    Add-Content -Path $PROFILE -Value $chocoProfileCode
+}
+# ----------------- END: ADD PROFILE CREATION LOGIC HERE -----------------
+
 # https://stackoverflow.com/a/28482050/3536094
 if((get-process $MyFavouriteEditorsProcessName -ea SilentlyContinue) -eq $Null){ 
     Write-Host "Attempting to open config file with $MyFavouriteEditorsProcessName..."
