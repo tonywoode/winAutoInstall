@@ -19,26 +19,35 @@ $ChocoLogLocation="C:\ProgramData\chocolatey\logs\chocolatey.log"
 # https://stackoverflow.com/a/29002672/3536094
 # https://stackoverflow.com/a/31756762/3536094
 If( !(Test-Path -Path $DesktopSymlinkPath)) {
-	Write-Host "Symlinking the runner for this script to the desktop"
+    Write-Host "Symlinking the runner for this script to the desktop"
     New-Item -ItemType SymbolicLink -Path "$home\Desktop" -Name "ChocsAway" -Value "$PSScriptRoot\1.ChocsAway.bat"
 }
 
 # install chocolatey if there's no choco command to be seen
 if (!(Get-Command choco.exe -ErrorAction SilentlyContinue)) {
-   #this is just the install command from https://chocolatey.org/install
-   Write-Host "Chocolatey not installed...installed"
-   Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    #this is just the install command from https://chocolatey.org/install
+    Write-Host "Chocolatey not installed...installed"
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
 
 # https://stackoverflow.com/a/28482050/3536094
 if((get-process $MyFavouriteEditorsProcessName -ea SilentlyContinue) -eq $Null){ 
-	Write-Host "opening $MyFavouriteEditorsProcessName so we can see and edit the config file"
-	# note the wait - see https://stackoverflow.com/q/45752097/3536094
-	# and https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process?view=powershell-7
-      Start-Process -wait $MyFavouriteEditorLocation $ChocoConfigFileLocation
+    Write-Host "Attempting to open config file with $MyFavouriteEditorsProcessName..."
+    # note the wait - see https://stackoverflow.com/q/45752097/3536094
+    # and https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process?view=powershell-7
+    
+    # --- MINIMAL CHANGE START (Use try/catch for Notepad++ fallback on config file) ---
+    try {
+        Start-Process -wait $MyFavouriteEditorLocation $ChocoConfigFileLocation -ErrorAction Stop
+    } catch {
+        Write-Host "Notepad++ not found. Falling back to notepad.exe."
+        Start-Process -wait notepad.exe $ChocoConfigFileLocation
+    }
+    # --- MINIMAL CHANGE END ---
+    
 } else { 
-  write-host "$MyFavouriteEditorsProcessName already running, opening config file in it" 
-  & $MyFavouriteEditorLocation $ChocoConfigFileLocation
+    write-host "$MyFavouriteEditorsProcessName already running, opening config file in it" 
+    & $MyFavouriteEditorLocation $ChocoConfigFileLocation
 }
 
 # Often, we want to query for something and add it to the list. That's why we open console and config file
@@ -58,17 +67,26 @@ choco upgrade all -y
 
 Write-Host "Lastly, just to help out, I'll open that log"
 if((get-process $MyFavouriteEditorsProcessName -ea SilentlyContinue) -eq $Null){ 
-	Write-Host "opening $MyFavouriteEditorsProcessName so we can see Choco's log file"
-      Start-Process -wait $MyFavouriteEditorLocation $ChocoLogLocation
+    Write-Host "Attempting to open Choco's log file with $MyFavouriteEditorsProcessName..."
+    
+    # --- MINIMAL CHANGE START (Use try/catch for Notepad++ fallback on log file) ---
+    try {
+        Start-Process -wait $MyFavouriteEditorLocation $ChocoLogLocation -ErrorAction Stop
+    } catch {
+        Write-Host "Notepad++ not found. Falling back to notepad.exe."
+        Start-Process -wait notepad.exe $ChocoLogLocation
+    }
+    # --- MINIMAL CHANGE END ---
+    
 } else { 
-  write-host "$MyFavouriteEditorsProcessName already running, opening Choco's log file in it" 
-  # note call operator & see https://stackoverflow.com/a/42670276/3536094
-  & $MyFavouriteEditorLocation $ChocoLogLocation
+    write-host "$MyFavouriteEditorsProcessName already running, opening Choco's log file in it" 
+    # note call operator & see https://stackoverflow.com/a/42670276/3536094
+    & $MyFavouriteEditorLocation $ChocoLogLocation
 }
 
 Write-Host "Press Any Key to Exit"
 # waiting in powershell is interesting see https://adamtheautomator.com/how-to-pause-a-powershell-script/ - great article
 # you have to pipe this to null to not see it output https://stackoverflow.com/a/6461021/3536094 like
-# $pause = $host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') |  out-null
+# $pause = $host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | out-null
 # but for some reason the $pause command wasn't halting the script, I think because of the piping
 $host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
