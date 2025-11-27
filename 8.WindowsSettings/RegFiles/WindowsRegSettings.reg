@@ -19,20 +19,18 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "Hidden"=dword:00000001
 
-; show protected operating system files
+; show protected operating system files (ShowSuperHidden=1)
 ; http://www.tenforums.com/tutorials/9168-hidden-files-folders-drives-show-windows-10-a.html
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "ShowSuperHidden"=dword:00000001
 
-; Dont Hide File Extensions
+; Dont Hide File Extensions (Corrected: HideFileExt=0)
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"ShowSuperHidden"=dword:00000000
+"HideFileExt"=dword:00000000
 
-; show a 'Map Network Drive' button
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"ShowSuperHidden"=dword:00000001
+; The original setting for 'Map Network Drive' was incorrect and has been removed.
 
-; do not  hide drives that have no media (off by default i think, at the moment....)
+; do not hide drives that have no media (off by default i think, at the moment....)
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "HideDrivesWithNoMedia"=dword:00000000
 
