@@ -55,7 +55,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003
 
 ; stop toggling keyboard language with shift+alt (try playing Crysis like that!)
-; it's only a problem if you have >1 keyboard language ofc
+; it's only a problem if you have >1 keyboard language ofc. THIS DOES POPUP A MODAL SUGGESTING YOU TURNED IT ON BUT IN FACT IT TURNS IT OFF
 ; https://superuser.com/questions/698037/can-i-disable-the-altshift-shortcut-to-change-language-in-windows-8-1-or-win
 [HKEY_CURRENT_USER\Keyboard Layout\Toggle]
 "Language HotKey"="3"
