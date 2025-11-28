@@ -53,3 +53,14 @@ Windows Registry Editor Version 5.00
 ; https://superuser.com/questions/1070290/registry-keys-for-automatic-time-and-time-zones
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate]
 "Start"=dword:00000003
+
+; stop toggling keyboard language with shift+alt (try playing Crysis like that!)
+; it's only a problem if you have >1 keyboard language ofc
+; https://superuser.com/questions/698037/can-i-disable-the-altshift-shortcut-to-change-language-in-windows-8-1-or-win
+[HKEY_CURRENT_USER\Keyboard Layout\Toggle]
+"Language HotKey"="3"
+"Layout HotKey"="3"
+; HKEY_USERS\.DEFAULT applies to the default user profile settings, which affect newly created users or the system at login screen
+[HKEY_USERS\.DEFAULT\Keyboard Layout\Toggle]
+"Language HotKey"="3"
+"Layout HotKey"="3"
