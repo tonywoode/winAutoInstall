@@ -4,3 +4,4 @@
 Set oShell = WScript.CreateObject("Shell.Application")
 oShell.NameSpace("P:\").Self.Name = "Emulators"
 oShell.NameSpace("F:\").Self.Name = "Games"
+oShell.NameSpace("R:\").Self.Name = "RetroBat"

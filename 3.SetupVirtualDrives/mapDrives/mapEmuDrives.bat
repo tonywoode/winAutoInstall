@@ -8,6 +8,7 @@
 :: TODO: now this doesn't seem needed anymore on 1809/1903 - ie: remove this line and reboot and P: is still mapped in RIVER, that doutbless means that some unanticipated
 ::  factor is at work
 subst P: C:\Emulators
+subst R: C:\Emulators\Retrobat
 
 ::Map games drive in the same way. Outer loop is for river
 if not exist F:\GAMES_DRIVE (
